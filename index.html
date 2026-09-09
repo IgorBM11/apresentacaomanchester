@@ -265,9 +265,9 @@
   .gantt-label{width:156px;flex-shrink:0;font-size:13.5px;color:var(--text-dark);font-weight:600;line-height:1.4;}
   .gantt-label small{display:block;font-weight:400;color:var(--text-light);font-size:11px;margin-top:2px;}
   .gantt-track{
-    flex:1;display:grid;grid-template-columns:repeat(10,1fr);gap:4px;height:48px;
+    flex:1;display:grid;grid-template-columns:repeat(12,1fr);gap:4px;height:48px;
     background-image:linear-gradient(to right, #f0f3f4 1px, transparent 1px);
-    background-size:calc(100%/10) 100%;
+    background-size:calc(100%/12) 100%;
     border-radius:8px;
   }
   .gantt-bar{
@@ -412,7 +412,7 @@
   <div class="section-inner">
     <div class="agent-header">
       <span class="eyebrow">02 — Agente 01</span>
-      <h2>O copiloto do especialista na <em>campanha</em> mensal</h2>
+      <h2>O copiloto do assessor na <em>campanha</em> mensal</h2>
     </div>
 
     <!-- DOR -->
@@ -428,8 +428,8 @@
       <span class="eyebrow">O que custa não fazer</span>
       <h3>Dois recursos escassos, presos um ao outro</h3>
       <ul>
-        <li><strong>Tempo do especialista</strong> segue preso a uma tradução repetitiva, em vez de vendas de maior complexidade e ticket.</li>
-        <li><strong>Autonomia do assessor</strong> permanece refém da agenda de outra pessoa — atraso na tradução é atraso direto na decisão do cliente.</li>
+        <li><strong>Tempo do especialista segue preso</strong> a uma tradução repetitiva, em vez de vendas de maior complexidade e ticket.</li>
+        <li><strong>Autonomia do assessor permanece refém</strong> da agenda de outra pessoa — atraso na tradução é atraso direto na decisão do cliente.</li>
         <li>Quanto mais a rede de assessores cresce, mais esse gargalo de agenda se agrava, sem a capacidade de especialistas crescer na mesma proporção.</li>
       </ul>
     </div>
@@ -496,23 +496,13 @@
       </div>
       <div class="sol-step highlight">
         <span class="num">03</span>
-        <h4>Automação de tarefas no CRM</h4>
-        <p>Atualiza o status do card, registra que a campanha foi comunicada e move a oportunidade para a etapa correta — sem trabalho manual do especialista.</p>
-      </div>
-      <div class="sol-step highlight">
-        <span class="num">04</span>
         <h4>Alerta de campanha parada</h4>
-        <p>Se o assessor não agir sobre a orientação em alguns dias, o agente avisa automaticamente — sem esperar o especialista notar.</p>
+        <p>Se o assessor não agir sobre a orientação em alguns dias, o agente avisa automaticamente — sem esperar o líder comercial notar.</p>
       </div>
       <div class="sol-step">
-        <span class="num">05</span>
+        <span class="num">04</span>
         <h4>Checkpoint de validação humana</h4>
         <p>Ativo enquanto a confiança no agente é construída — desativável gradualmente conforme a acurácia é validada.</p>
-      </div>
-      <div class="sol-step">
-        <span class="num">06</span>
-        <h4>Foco inicial no volume recorrente</h4>
-        <p>Prioriza os casos repetitivos da campanha — decisões atípicas continuam com o especialista desde o primeiro dia.</p>
       </div>
     </div>
 
@@ -520,20 +510,20 @@
     <h3 style="margin-top:52px;font-size:21px;color:var(--text-dark);">Stack tecnológico</h3>
     <div class="stack-grid">
       <div class="stack-item">
-        <div><div class="name">Base da campanha mensal</div><div class="desc">Sugestões de liquidez e montante, definidas pelo gestor de alocação</div></div>
+        <div><div class="name">LLM (Claude / GPT)</div><div class="desc">Motor de raciocínio para explicar o racional da campanha e tirar dúvidas do assessor</div></div>
         <span class="stack-tag">Já em uso</span>
       </div>
       <div class="stack-item">
-        <div><div class="name">CRM (Salesforce / XP)</div><div class="desc">Onde a sugestão de liquidez já é registrada hoje</div></div>
+        <div><div class="name">Banco de dados relacional (PostgreSQL)</div><div class="desc">Armazena histórico de interações e estado do agente</div></div>
         <span class="stack-tag">Já em uso</span>
       </div>
       <div class="stack-item">
-        <div><div class="name">LLM (Claude / GPT)</div><div class="desc">Motor de raciocínio para traduzir a recomendação técnica</div></div>
-        <span class="stack-tag new">Integração nova</span>
+        <div><div class="name">Servidor (AWS)</div><div class="desc">Onde a aplicação fica disponível, hospedada em nuvem</div></div>
+        <span class="stack-tag">Já em uso</span>
       </div>
       <div class="stack-item">
-        <div><div class="name">Banco de dados de recomendações</div><div class="desc">Versiona orientações e decisões, para auditoria</div></div>
-        <span class="stack-tag new">A contratar (a validar)</span>
+        <div><div class="name">Aplicação</div><div class="desc">Código do agente orquestrando campanha, LLM e CRM</div></div>
+        <span class="stack-tag new">Desenvolvido pela Starbridge</span>
       </div>
     </div>
   </div>
@@ -610,7 +600,7 @@
       </div>
       <div class="opp-card">
         <span class="num">04</span>
-        <p><strong>Motivo de perda estruturado</strong> pela primeira vez, em ambos os produtos.</p>
+        <p><strong>Motivo de perda estruturado (opcional)</strong> pela primeira vez, em ambos os produtos.</p>
       </div>
     </div>
 
@@ -634,19 +624,13 @@
         <div class="step-title">Aciona o assessor</div>
         <div class="step-desc">Notificação direta para quem precisa agir, em vez de depender do card "ser lembrado"</div>
       </div>
-      <div class="diagram-arrow">→</div>
-      <div class="diagram-step">
-        <span class="step-label">Fechamento</span>
-        <div class="step-title">Captura o motivo</div>
-        <div class="step-desc">Em caso de perda, estrutura o motivo para alimentar o painel de conversão</div>
-      </div>
     </div>
 
     <div class="solution-steps">
       <div class="sol-step highlight">
         <span class="num">01</span>
         <h4>Leitura do funil para o líder</h4>
-        <p>Dashboard consolidado com conversão por etapa e onde cada funil trava — sem precisar caçar card por card no CRM.</p>
+        <p>Dashboard consolidado com conversão por etapa e onde cada funil trava — sem precisar caçar card por card no CRM. Inclui relatório semanal automático com a leitura do CRM enviado direto ao líder.</p>
       </div>
       <div class="sol-step highlight">
         <span class="num">02</span>
@@ -660,18 +644,8 @@
       </div>
       <div class="sol-step">
         <span class="num">04</span>
-        <h4>Automação de tarefas no CRM</h4>
-        <p>Atualiza o status do card e registra o motivo de perda automaticamente, sem preenchimento manual do assessor.</p>
-      </div>
-      <div class="sol-step">
-        <span class="num">05</span>
-        <h4>Atua sobre dados já estruturados</h4>
-        <p>Opera sobre a base dos dois funis, sem transcrição de reuniões — em linha com as normas de CVM e Banco Central.</p>
-      </div>
-      <div class="sol-step">
-        <span class="num">06</span>
-        <h4>Foco inicial nos cards parados</h4>
-        <p>Prioriza a reativação de oportunidades já originadas, antes de automatizar a geração de proposta em si.</p>
+        <h4>Grupo de WhatsApp automatizado</h4>
+        <p>Cria automaticamente um grupo com cliente, especialista e assessor, centralizando toda a comunicação da oportunidade em um só lugar.</p>
       </div>
     </div>
 
@@ -684,15 +658,27 @@
       </div>
       <div class="stack-item">
         <div><div class="name">LLM (Claude / GPT)</div><div class="desc">Gera sugestões de reativação e classifica o motivo de perda</div></div>
-        <span class="stack-tag new">Integração nova</span>
+        <span class="stack-tag">Já em uso</span>
       </div>
       <div class="stack-item">
-        <div><div class="name">WhatsApp Business API / e-mail</div><div class="desc">Canal de alerta para o assessor</div></div>
+        <div><div class="name">WhatsApp Business API / e-mail</div><div class="desc">Canal de comunicação entre assessor, especialista e cliente</div></div>
         <span class="stack-tag new">A contratar (a validar)</span>
       </div>
       <div class="stack-item">
         <div><div class="name">Dashboard de conversão</div><div class="desc">Conversão por etapa, tempo médio parado e motivos de perda, por funil</div></div>
         <span class="stack-tag new">Desenvolvido pela Starbridge</span>
+      </div>
+      <div class="stack-item">
+        <div><div class="name">Banco de dados relacional</div><div class="desc">Armazena histórico de interações e estado dos dois funis</div></div>
+        <span class="stack-tag">Já em uso</span>
+      </div>
+      <div class="stack-item">
+        <div><div class="name">Aplicação — extensão da MAIA</div><div class="desc">Construída como extensão da IA já existente na Manchester, não como sistema à parte</div></div>
+        <span class="stack-tag new">Desenvolvido pela Starbridge</span>
+      </div>
+      <div class="stack-item">
+        <div><div class="name">Servidor (AWS)</div><div class="desc">Onde a aplicação fica disponível, hospedada em nuvem</div></div>
+        <span class="stack-tag">Já em uso</span>
       </div>
     </div>
   </div>
@@ -707,7 +693,7 @@
     <div class="premise-list">
       <div class="premise-item">
         <span class="p-num">01</span>
-        <div><h4>Acesso técnico completo antes do início</h4><p>CRM (Salesforce/XP), base dos dois funis (seguros e consórcios), e a base da campanha mensal usada pelo gestor de alocação.</p></div>
+        <div><h4>Acesso técnico completo antes do início</h4><p>CRM, base dos dois funis (seguros e consórcios), e a base da campanha mensal usada pelo gestor de alocação.</p></div>
       </div>
       <div class="premise-item">
         <span class="p-num">02</span>
@@ -733,14 +719,15 @@
     <p class="lede">Os dois módulos rodam simultaneamente, com equipes e ritmos de validação independentes.</p>
 
     <div class="gantt-card">
-      <div class="gantt-header"><span>Sem 1</span><span>Sem 4</span><span>Sem 7</span><span>Sem 10</span></div>
+      <div class="gantt-header"><span>Sem 1</span><span>Sem 4</span><span>Sem 8</span><span>Sem 12</span></div>
 
       <div class="gantt-row">
         <div class="gantt-label">Módulo 01<small>Agente de Campanhas</small></div>
         <div class="gantt-track">
-          <div class="gantt-bar track-a" style="grid-column: 1 / span 4;">Modelagem do julgamento<span class="gb-duration">Sem 1–4</span></div>
-          <div class="gantt-bar track-a" style="grid-column: 5 / span 3;">Testes em sombra<span class="gb-duration">Sem 5–7</span></div>
-          <div class="gantt-bar track-a" style="grid-column: 8 / span 3;">Go-live<span class="gb-duration">Sem 8–10</span></div>
+          <div class="gantt-bar track-a" style="grid-column: 1 / span 2;">Diagnóstico<span class="gb-duration">Sem 1–2</span></div>
+          <div class="gantt-bar track-a" style="grid-column: 3 / span 4;">Modelagem do julgamento<span class="gb-duration">Sem 3–6</span></div>
+          <div class="gantt-bar track-a" style="grid-column: 7 / span 3;">Testes em sombra<span class="gb-duration">Sem 7–9</span></div>
+          <div class="gantt-bar track-a" style="grid-column: 10 / span 3;">Go-live<span class="gb-duration">Sem 10–12</span></div>
         </div>
       </div>
 
@@ -748,14 +735,14 @@
         <div class="gantt-label">Módulo 02<small>Agente de Funil</small></div>
         <div class="gantt-track">
           <div class="gantt-bar track-b" style="grid-column: 1 / span 3;">Diagnóstico<span class="gb-duration">Sem 1–3</span></div>
-          <div class="gantt-bar track-b" style="grid-column: 4 / span 4;">Construção do agente<span class="gb-duration">Sem 4–7</span></div>
-          <div class="gantt-bar track-b" style="grid-column: 8 / span 2;">Go-live<span class="gb-duration">Sem 8–9</span></div>
+          <div class="gantt-bar track-b" style="grid-column: 4 / span 4;">Construção<span class="gb-duration">Sem 4–7</span></div>
+          <div class="gantt-bar track-b" style="grid-column: 8 / span 3;">Go-live e Acompanhamento<span class="gb-duration">Sem 8–10</span></div>
         </div>
       </div>
 
       <div class="gantt-legend">
-        <div class="gantt-legend-item"><span class="legend-dot a"></span>Módulo 01 — Agente de Campanhas (10 semanas)</div>
-        <div class="gantt-legend-item"><span class="legend-dot b"></span>Módulo 02 — Agente de Funil (9 semanas)</div>
+        <div class="gantt-legend-item"><span class="legend-dot a"></span>Módulo 01 — Agente de Campanhas (12 semanas)</div>
+        <div class="gantt-legend-item"><span class="legend-dot b"></span>Módulo 02 — Agente de Funil (10 semanas)</div>
       </div>
     </div>
 
@@ -763,25 +750,32 @@
       <div>
         <div class="detail-track-head"><span class="dot a"></span><h4>Detalhamento — Agente de Campanhas</h4></div>
         <div class="detail-phase">
-          <div class="dp-top"><span class="dp-title">Modelagem do julgamento</span><span class="dp-duration">Sem. 1–4</span></div>
+          <div class="dp-top"><span class="dp-title">Diagnóstico</span><span class="dp-duration">Sem. 1–2</span></div>
+          <ul>
+            <li>Mapear o processo atual da campanha e validar acesso ao CRM e à base da campanha mensal</li>
+            <li>Entender, em linhas gerais, o racional hoje usado pelos especialistas</li>
+          </ul>
+          <div class="dp-deliver">Entrega: diagnóstico validado + acessos confirmados</div>
+        </div>
+        <div class="detail-phase">
+          <div class="dp-top"><span class="dp-title">Modelagem do julgamento</span><span class="dp-duration">Sem. 3–6</span></div>
           <ul>
             <li>Mapear com os especialistas o racional usado para explicar a campanha a cada assessor</li>
-            <li>Validar acesso à base da campanha mensal e ao CRM</li>
             <li>Construir a primeira versão do agente com casos reais do último ciclo</li>
           </ul>
           <div class="dp-deliver">Entrega: agente funcional em ambiente de teste</div>
         </div>
         <div class="detail-phase">
-          <div class="dp-top"><span class="dp-title">Testes em modo sombra</span><span class="dp-duration">Sem. 5–7</span></div>
+          <div class="dp-top"><span class="dp-title">Testes em modo sombra</span><span class="dp-duration">Sem. 7–9</span></div>
           <ul>
-            <li>Rodar o agente em paralelo à campanha real, comparando explicações com os especialistas</li>
+            <li>Rodar o agente em paralelo à campanha real, com especialistas alocados para validar</li>
             <li>Ajustar o racional com base nos desvios identificados</li>
             <li>Configurar o checkpoint de validação humana</li>
           </ul>
           <div class="dp-deliver">Entrega: agente validado contra o julgamento real dos especialistas</div>
         </div>
         <div class="detail-phase">
-          <div class="dp-top"><span class="dp-title">Go-live e acompanhamento</span><span class="dp-duration">Sem. 8–10</span></div>
+          <div class="dp-top"><span class="dp-title">Go-live e acompanhamento</span><span class="dp-duration">Sem. 10–12</span></div>
           <ul>
             <li>Colocar o agente em produção para um grupo piloto de assessores</li>
             <li>Acompanhar de perto as primeiras orientações reais</li>
@@ -798,27 +792,27 @@
           <ul>
             <li>Mapear com Silvio e Rafael as etapas dos dois funis e o tempo esperado por etapa</li>
             <li>Identificar as maiores concentrações de evasão no histórico do CRM</li>
-            <li>Definir a taxonomia inicial de motivos de perda junto ao time comercial</li>
+            <li>Definir a taxonomia inicial de motivos de perda junto ao time comercial (opcional)</li>
           </ul>
-          <div class="dp-deliver">Entrega: diagnóstico dos dois funis + taxonomia validada</div>
+          <div class="dp-deliver">Entrega: diagnóstico dos dois funis</div>
         </div>
         <div class="detail-phase">
-          <div class="dp-top"><span class="dp-title">Construção do agente</span><span class="dp-duration">Sem. 4–7</span></div>
+          <div class="dp-top"><span class="dp-title">Construção</span><span class="dp-duration">Sem. 4–7</span></div>
           <ul>
             <li>Implementar a varredura contínua do CRM e a detecção de cards parados</li>
-            <li>Construir a geração de sugestão de reativação e os alertas por nível (assessor/líder)</li>
-            <li>Implementar a captura estruturada de motivo de perda no fechamento</li>
+            <li>Construir a sugestão de reativação e os alertas por nível (assessor/líder)</li>
+            <li>Implementar a criação automatizada de grupos de WhatsApp por oportunidade</li>
           </ul>
           <div class="dp-deliver">Entrega: agente de monitoramento e alertas em ambiente de teste</div>
         </div>
         <div class="detail-phase">
-          <div class="dp-top"><span class="dp-title">Go-live e acompanhamento</span><span class="dp-duration">Sem. 8–9</span></div>
+          <div class="dp-top"><span class="dp-title">Go-live e Acompanhamento</span><span class="dp-duration">Sem. 8–10</span></div>
           <ul>
             <li>Colocar o agente em produção acompanhando o funil real</li>
             <li>Ajustar os gatilhos de tempo parado por etapa com base no uso real</li>
-            <li>Entregar o painel de conversão consolidado</li>
+            <li>Entregar o dashboard do líder e o relatório semanal</li>
           </ul>
-          <div class="dp-deliver">Entrega: agente em produção + painel de conversão</div>
+          <div class="dp-deliver">Entrega: agente em produção + dashboard e relatório semanal</div>
         </div>
       </div>
     </div>
@@ -837,13 +831,14 @@
         <span class="pc-eyebrow">Módulo 01</span>
         <h3>Agente de Campanhas</h3>
         <p class="pc-desc">Copiloto do especialista para explicar a campanha mensal a cada assessor, com automação de CRM.</p>
-        <div class="pc-price">R$ 50.000</div>
-        <div class="pc-price-monthly">≈ R$ 20.000/mês × 2,5 meses</div>
-        <div class="pc-duration">10 semanas</div>
+        <div class="pc-price">R$ 60.000</div>
+        <div class="pc-price-monthly">≈ R$ 20.000/mês × 3 meses</div>
+        <div class="pc-duration">12 semanas</div>
         <ul>
+          <li>Diagnóstico do processo atual e dos acessos necessários</li>
           <li>Modelagem do racional junto aos especialistas</li>
           <li>Integração com CRM e base da campanha mensal</li>
-          <li>Automação de tarefas de workflow e alertas de campanha parada</li>
+          <li>Alerta automático de campanha parada</li>
           <li>Checkpoint de validação humana configurável</li>
           <li>Testes em modo sombra antes do go-live</li>
           <li>Documentação e handoff ao time de especialistas</li>
@@ -854,15 +849,14 @@
         <span class="pc-eyebrow">Módulo 02</span>
         <h3>Agente de Funil</h3>
         <p class="pc-desc">Copiloto do assessor para monitorar e reativar propostas nos funis de seguros e consórcios.</p>
-        <div class="pc-price">R$ 30.000</div>
-        <div class="pc-price-monthly">≈ R$ 15.000/mês × 2 meses</div>
-        <div class="pc-duration">9 semanas</div>
+        <div class="pc-price">R$ 35.000</div>
+        <div class="pc-price-monthly">≈ R$ 14.000/mês × 2,5 meses</div>
+        <div class="pc-duration">10 semanas</div>
         <ul>
-          <li>Diagnóstico dos dois funis e taxonomia de motivo de perda</li>
-          <li>Monitoramento contínuo com alertas de reativação em dois níveis</li>
-          <li>Automação de tarefas de CRM e padronização de registro</li>
-          <li>Canal de alerta via WhatsApp/e-mail para assessor e líder</li>
-          <li>Painel de conversão por etapa, parceiro e motivo</li>
+          <li>Diagnóstico dos dois funis (consórcio e seguros)</li>
+          <li>Dashboard e relatório semanal para o líder</li>
+          <li>Copiloto e reminders automáticos em dois níveis</li>
+          <li>Criação automatizada de grupos de WhatsApp por oportunidade</li>
         </ul>
       </div>
     </div>
